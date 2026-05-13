@@ -1,13 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+
+dotenv.config();
+
 const categoryRoutes = require('./routes/categoryRoutes'); 
 const subCategoryRoutes = require('./routes/subCategoryRoutes');
 const userRoutes = require('./routes/userRoutes');
-
-
-
-dotenv.config();
+const promptRoutes = require('./routes/promptRoutes');
 
 const app = express();
 
@@ -16,6 +16,7 @@ app.use(express.json());
 app.use('/api/categories', categoryRoutes);
 app.use('/api/subcategories', subCategoryRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/prompts', promptRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

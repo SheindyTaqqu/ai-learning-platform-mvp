@@ -66,11 +66,17 @@ export class ApiService {
     return this.http.post<User>(`${this.baseUrl}/users`, data);
   }
 
+  loginUser(data: { name: string; phone: string }): Observable<User> {
+    return this.http.post<User>(`${this.baseUrl}/users/login`, data);
+  }
+
   getUserHistory(userId: string): Observable<Prompt[]> {
     return this.http.get<Prompt[]>(`${this.baseUrl}/prompts/user/${userId}`);
   }
 
-  getAllUsersWithPrompts(): Observable<UserWithPrompts[]> {
-    return this.http.get<UserWithPrompts[]>(`${this.baseUrl}/users/admin`);
+  getAllUsersWithPrompts(password: string): Observable<UserWithPrompts[]> {
+    return this.http.get<UserWithPrompts[]>(`${this.baseUrl}/users/admin`, {
+      headers: { 'x-admin-password': password }
+    });
   }
 }

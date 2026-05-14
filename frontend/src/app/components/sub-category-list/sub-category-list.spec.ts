@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubCategoryList } from './sub-category-list';
+import { SubCategoryListComponent } from './sub-category-list';
 
-describe('SubCategoryList', () => {
-  let component: SubCategoryList;
-  let fixture: ComponentFixture<SubCategoryList>;
+describe('SubCategoryListComponent', () => {
+  let component: SubCategoryListComponent;
+  let fixture: ComponentFixture<SubCategoryListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SubCategoryList]
+      imports: [SubCategoryListComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SubCategoryList);
+    fixture = TestBed.createComponent(SubCategoryListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

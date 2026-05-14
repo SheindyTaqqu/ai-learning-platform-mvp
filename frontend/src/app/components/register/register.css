@@ -87,6 +87,51 @@ button {
 
 button:hover { opacity: 0.88; }
 
+.tabs {
+  display: flex;
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.tabs button {
+  flex: 1;
+  background: none;
+  color: #888;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  transition: all 0.2s;
+}
+
+.tabs button.active {
+  background: white;
+  color: #6c63ff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.tabs button:hover { opacity: 1; }
+
+.submit-btn {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.submit-btn:hover { opacity: 0.88; }
+
 .error {
   color: #e53e3e;
   font-size: 13px;

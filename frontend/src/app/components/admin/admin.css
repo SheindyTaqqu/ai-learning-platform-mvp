@@ -6,6 +6,80 @@
   direction: rtl;
 }
 
+.login-card {
+  max-width: 400px;
+  margin: 80px auto;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.15);
+  text-align: center;
+}
+
+.card-header .icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.card-header h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 8px;
+}
+
+.card-header p {
+  color: #888;
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form input {
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.form input:focus { border-color: #6c63ff; }
+
+.form button {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.form button:hover { opacity: 0.88; }
+.form button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.error { color: #e53e3e; font-size: 13px; margin: 0; }
+
+.hint {
+  color: #888;
+  font-size: 13px;
+  margin: 0;
+  text-align: center;
+}
+
+.hint strong {
+  color: #6c63ff;
+}
+
 .title {
   font-size: 24px;
   color: #333;

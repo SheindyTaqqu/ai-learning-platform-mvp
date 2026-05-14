@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService, Prompt, AskAIRequest } from '../../services/api';
+import { ApiService, Prompt } from '../../services/api';
 
 @Component({
   selector: 'app-prompt',
@@ -38,15 +38,19 @@ export class PromptComponent implements OnInit {
     this.categoryName = this.route.snapshot.queryParamMap.get('catName') || '';
     this.subCategoryName = this.route.snapshot.queryParamMap.get('subName') || '';
 
-    const request: AskAIRequest = {
+    if (!this.categoryId || !this.subCategoryId || !this.categoryName || !this.subCategoryName) {
+      this.error = 'פרטים חסרים, חזור ובחר שוב';
+      this.loading = false;
+      return;
+    }
+
+    this.apiService.askAI({
       user_id: userId,
       category_id: this.categoryId,
       sub_category_id: this.subCategoryId,
       categoryName: this.categoryName,
       subCategoryName: this.subCategoryName
-    };
-
-    this.apiService.askAI(request).subscribe({
+    }).subscribe({
       next: (data: Prompt) => {
         this.response = data.response;
         this.loading = false;
@@ -59,6 +63,8 @@ export class PromptComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/subcategories', this.categoryId]);
+    this.router.navigate(['/subcategories', this.categoryId], {
+      queryParams: { catName: this.categoryName }
+    });
   }
 }

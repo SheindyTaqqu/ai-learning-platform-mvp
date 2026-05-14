@@ -4,7 +4,10 @@
     <a routerLink="/">דף הבית</a>
     <a routerLink="/history">ההיסטוריה שלי</a>
     <a routerLink="/admin">Admin</a>
-    <a routerLink="/register">הרשמה</a>
+    <div class="user-section" *ngIf="currentUser">
+      <span class="user-name">שלום, {{ currentUser.name }} 👋</span>
+      <button class="logout-btn" (click)="logout()">יציאה</button>
+    </div>
   </div>
 </nav>
 <router-outlet />

@@ -2,15 +2,15 @@ version: '3.8'
 
 services:
   mongodb:
-    image: mongo:latest # שימוש באימג' הרשמי של MongoDB
+    image: mongo:latest 
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}     # שם משתמש לניהול
-      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD} # סיסמה לניהול
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}   
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "27017:27017" # הפורט הסטנדרטי של MongoDB
+      - "27017:27017"
     volumes:
-      - mongo_data:/data/db # שמירת הנתונים בנפח (Volume) כדי שלא יימחקו
+      - mongo_data:/data/db
 
 volumes:
   mongo_data:

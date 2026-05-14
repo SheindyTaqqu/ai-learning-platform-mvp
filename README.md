@@ -118,13 +118,23 @@ MONGO_URI=mongodb://localhost:27017/learning
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | /api/users | Register a new user |
+| POST | /api/users/login | Login with name + phone |
 | GET | /api/users | Get all users |
-| GET | /api/users/admin | Get all users with prompt history |
+| GET | /api/users/admin | Get all users with prompt history (requires admin password) |
 | GET | /api/categories | Get all categories |
 | POST | /api/categories | Create a category |
 | GET | /api/subcategories/:categoryId | Get sub-categories by category |
 | POST | /api/prompts/ask | Submit a prompt and get AI response |
 | GET | /api/prompts/user/:userId | Get learning history for a user |
+
+---
+
+## Admin Dashboard
+
+The admin dashboard is protected by a password.
+
+- URL: `http://localhost:4200/admin`
+- Default password: `admin123` (can be changed in `.env` via `ADMIN_PASSWORD`)
 
 ---
 
@@ -134,8 +144,7 @@ MONGO_URI=mongodb://localhost:27017/learning
 PORT=5000
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/?appName=Cluster0
 API_KEY=<your-openai-api-key>
-DB_USER=admin
-DB_PASSWORD=<your-db-password>
+ADMIN_PASSWORD=admin123
 ```
 
 ---
@@ -143,6 +152,7 @@ DB_PASSWORD=<your-db-password>
 ## Assumptions
 
 - **AI Integration:** Due to API access limitations, the AI service uses a local mock database with predefined responses. The `aiService.js` is structured with a clear interface so it can be swapped with a real OpenAI call by replacing the `generateLearningContent` function.
-- **Authentication:** No JWT authentication is implemented in this MVP. User identity is stored in `localStorage` after registration.
+- **Authentication:** No JWT authentication is implemented in this MVP. Users register and log in using their name and phone number. User identity is stored in `localStorage` after login/registration.
+- **Admin Protection:** The admin dashboard is protected by a simple password defined in `.env`. This is not JWT-based but provides basic access control for the MVP.
 - **Frontend Framework:** Angular was used instead of React/Vue as it is a modern production-grade frontend framework that meets the requirements.
 - **Database:** MongoDB Atlas is used as the cloud database. Docker Compose is included for local MongoDB as an alternative.

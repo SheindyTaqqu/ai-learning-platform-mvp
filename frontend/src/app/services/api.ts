@@ -46,8 +46,8 @@ export interface AskAIRequest {
   providedIn: 'root'
 })
 export class ApiService {
+  //private baseUrl = 'https://ai-learning-platform-mvp-noyc.onrender.com/api';
   private baseUrl = 'http://localhost:5000/api';
-
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {

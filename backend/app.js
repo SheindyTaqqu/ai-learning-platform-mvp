@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -8,13 +9,11 @@ const categoryRoutes = require('./routes/categoryRoutes');
 const subCategoryRoutes = require('./routes/subCategoryRoutes');
 const userRoutes = require('./routes/userRoutes');
 const promptRoutes = require('./routes/promptRoutes');
-const cors = require('cors');
 
 const app = express();
 
-app.use(express.json()); 
-
 app.use(cors());
+app.use(express.json());
 app.use('/api/categories', categoryRoutes);
 app.use('/api/subcategories', subCategoryRoutes);
 app.use('/api/users', userRoutes);

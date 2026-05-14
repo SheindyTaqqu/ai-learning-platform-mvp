@@ -1,0 +1,27 @@
+<div class="page">
+  <button class="back-btn" (click)="goHome()">← חזרה לדף הבית</button>
+
+  <h2 class="title">היסטוריית למידה של {{ userName }}</h2>
+
+  <div class="loading-card" *ngIf="loading">
+    <div class="spinner"></div>
+    <p>טוען היסטוריה...</p>
+  </div>
+
+  <div class="empty" *ngIf="!loading && history.length === 0">
+    <p>📚 עדיין אין היסטוריה. התחל ללמוד!</p>
+    <button (click)="goHome()">התחל עכשיו</button>
+  </div>
+
+  <div class="history-list" *ngIf="!loading && history.length > 0">
+    <div class="history-card" *ngFor="let item of history">
+      <div class="card-top">
+        <span class="badge">{{ item.category_id?.name }}</span>
+        <span class="arrow">›</span>
+        <span class="badge accent">{{ item.sub_category_id?.name }}</span>
+        <span class="date">{{ item.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+      </div>
+      <p class="response-text">{{ item.response }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="page">
+  <div class="hero">
+    <h1>ברוכים הבאים ל-AI Learning 🧠</h1>
+    <p>בחר נושא ללמידה וקבל שיעור מותאם אישית</p>
+  </div>
+
+  <div class="grid">
+    <div *ngFor="let cat of categories" class="card" (click)="selectCategory(cat)">
+      <div class="card-icon">{{ icons[cat.name] || '📖' }}</div>
+      <h3>{{ cat.name }}</h3>
+      <span class="arrow">← התחל ללמוד</span>
+    </div>
+  </div>
+
+  <div class="empty" *ngIf="categories.length === 0">
+    <p>טוען קטגוריות...</p>
+  </div>
+</div>

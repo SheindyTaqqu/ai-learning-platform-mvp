@@ -1,0 +1,47 @@
+<div class="page">
+  <div class="title-row">
+    <h2 class="title">🛠️ Admin Dashboard</h2>
+    <button class="refresh-btn" (click)="loadData()" [disabled]="loading">
+      {{ loading ? 'טוען...' : '🔄 רענן' }}
+    </button>
+  </div>
+
+  <div class="loading-card" *ngIf="loading">
+    <div class="spinner"></div>
+    <p>טוען נתונים...</p>
+  </div>
+
+  <div class="empty" *ngIf="!loading && users.length === 0">
+    <p>אין משתמשים רשומים עדיין.</p>
+  </div>
+
+  <div class="user-list" *ngIf="!loading && users.length > 0">
+    <div class="user-card" *ngFor="let user of users">
+      <div class="user-row" (click)="toggleUser(user._id)">
+        <div class="user-info">
+          <span class="user-name">{{ user.name }}</span>
+          <span class="user-phone">{{ user.phone }}</span>
+        </div>
+        <div class="user-meta">
+          <span class="prompt-count">{{ user.prompts.length }} שיעורים</span>
+          <span class="chevron" [class.open]="expandedUserId === user._id">▼</span>
+        </div>
+      </div>
+
+      <div class="prompts-list" *ngIf="expandedUserId === user._id">
+        <div class="empty-prompts" *ngIf="user.prompts.length === 0">
+          <p>אין היסטוריה למשתמש זה.</p>
+        </div>
+        <div class="prompt-item" *ngFor="let p of user.prompts">
+          <div class="prompt-top">
+            <span class="badge">{{ p.category_id?.name }}</span>
+            <span class="arrow">›</span>
+            <span class="badge accent">{{ p.sub_category_id?.name }}</span>
+            <span class="date">{{ p.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+          </div>
+          <p class="prompt-response">{{ p.response }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

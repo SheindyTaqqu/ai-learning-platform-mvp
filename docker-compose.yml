@@ -1,11 +1,16 @@
+version: '3.8'
+
 services:
   mongodb:
-    image: mongo:latest
-    container_name: mongodb_learning
+    image: mongo:latest # שימוש באימג' הרשמי של MongoDB
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}     # שם משתמש לניהול
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD} # סיסמה לניהול
     ports:
-      - "27017:27017"
+      - "27017:27017" # הפורט הסטנדרטי של MongoDB
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db # שמירת הנתונים בנפח (Volume) כדי שלא יימחקו
 
 volumes:
-  mongo-data:
+  mongo_data:

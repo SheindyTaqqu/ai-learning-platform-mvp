@@ -1,0 +1,20 @@
+<div class="page">
+  <button class="back-btn" (click)="goToCategories()">← חזרה לקטגוריות</button>
+
+  <div class="hero">
+    <span class="category-badge">{{ categoryName }}</span>
+    <h2>בחר נושא ספציפי</h2>
+  </div>
+
+  <div class="grid">
+    <div *ngFor="let sub of subCategories" class="card" (click)="selectSubCategory(sub)">
+      <div class="card-icon">📌</div>
+      <h3>{{ sub.name }}</h3>
+      <span class="arrow">← למד עכשיו</span>
+    </div>
+  </div>
+
+  <div class="empty" *ngIf="subCategories.length === 0">
+    <p>טוען נתונים...</p>
+  </div>
+</div>

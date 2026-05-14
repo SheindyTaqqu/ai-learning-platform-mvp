@@ -1,0 +1,22 @@
+<div class="page">
+  <div class="card">
+    <div class="card-header">
+      <span class="icon">📚</span>
+      <h2>הרשמה</h2>
+      <p>הצטרף והתחל ללמוד עם AI</p>
+    </div>
+
+    <div class="form">
+      <div class="field">
+        <label>שם מלא</label>
+        <input [(ngModel)]="name" placeholder="הכנס שם מלא" />
+      </div>
+      <div class="field">
+        <label>טלפון</label>
+        <input [(ngModel)]="phone" placeholder="הכנס מספר טלפון" />
+      </div>
+      <p *ngIf="error" class="error">{{ error }}</p>
+      <button (click)="register()">הירשם</button>
+    </div>
+  </div>
+</div>

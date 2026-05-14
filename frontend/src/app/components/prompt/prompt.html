@@ -1,0 +1,26 @@
+<div class="page">
+  <button class="back-btn" (click)="goBack()">← חזרה</button>
+
+  <div class="topic-header">
+    <span class="badge">{{ categoryName }}</span>
+    <span class="arrow">›</span>
+    <span class="badge accent">{{ subCategoryName }}</span>
+  </div>
+
+  <div class="response-card" *ngIf="!loading && !error">
+    <div class="card-header">
+      <span class="ai-icon">🤖</span>
+      <h3>תשובת ה-AI</h3>
+    </div>
+    <p class="response-text">{{ response }}</p>
+  </div>
+
+  <div class="loading-card" *ngIf="loading">
+    <div class="spinner"></div>
+    <p>טוען תשובה...</p>
+  </div>
+
+  <div class="error-card" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+</div>

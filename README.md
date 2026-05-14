@@ -134,6 +134,8 @@ MONGO_URI=mongodb://localhost:27017/learning
 PORT=5000
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/?appName=Cluster0
 API_KEY=<your-openai-api-key>
+DB_USER=admin
+DB_PASSWORD=<your-db-password>
 ```
 
 ---

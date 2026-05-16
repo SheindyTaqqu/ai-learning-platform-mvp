@@ -6,10 +6,10 @@ const Category = require('./models/Category');
 const SubCategory = require('./models/SubCategory');
 
 const data = {
-  Science: ['Space', 'Biology', 'Chemistry', 'Physics'],
-  History: ['Ancient Egypt', 'World War II', 'The Renaissance', 'The French Revolution'],
-  Technology: ['Artificial Intelligence', 'Cybersecurity', 'Web Development'],
-  Math: ['Algebra', 'Geometry', 'Statistics']
+  'מדע': ['מרחב', 'ביולוגיה', 'כימיה', 'פיזיקה'],
+  'היסטוריה': ['מצרים העתיקה', 'מלחמת העולם השנייה', 'הרנסנס', 'המהפכה הצרפתית'],
+  'טכנולוגיה': ['בינה מלאכותית', 'אבטחת סייבר', 'פיתוח אתרים'],
+  'מתמטיקה': ['אלגברה', 'גיאומטריה', 'סטטיסטיקה']
 };
 
 async function seed() {

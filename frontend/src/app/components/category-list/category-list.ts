@@ -14,10 +14,10 @@ export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
   error = '';
   icons: Record<string, string> = {
-    'Science': '🔬',
-    'History': '🏛️',
-    'Technology': '💻',
-    'Math': '📊'
+    'מדע': '🔬',
+    'היסטוריה': '🏛️',
+    'טכנולוגיה': '💻',
+    'מתמטיקה': '📊'
   };
 
   constructor(private apiService: ApiService, private router: Router) {}
